@@ -138,22 +138,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\ans01.txt" />
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\ans02.txt" />
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\ans03.txt" />
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\input01.txt" />
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\input02.txt" />
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\input03.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\..\Desktop\COSC2430\HW0\hw0.pdf" />
-    <None Include="..\..\..\..\..\Desktop\COSC2430\HW0\test0.sh" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\COSC2430\HW0\ArgumentManager.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="hw0.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArgumentManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ans01.txt" />
+    <Text Include="ans02.txt" />
+    <Text Include="ans03.txt" />
+    <Text Include="input01.txt" />
+    <Text Include="input02.txt" />
+    <Text Include="input03.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hw0.pdf" />
+    <None Include="test0.sh" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

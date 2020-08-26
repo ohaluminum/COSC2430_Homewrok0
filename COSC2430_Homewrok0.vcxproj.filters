@@ -15,41 +15,41 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\ans01.txt">
+    <ClCompile Include="hw0.cpp">
       <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\ans02.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\ans03.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\input01.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\input02.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="..\..\..\..\..\Desktop\COSC2430\HW0\input03.txt">
-      <Filter>Source Files</Filter>
-    </Text>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\Desktop\COSC2430\HW0\hw0.pdf">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\..\..\..\..\Desktop\COSC2430\HW0\test0.sh">
-      <Filter>Source Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\COSC2430\HW0\ArgumentManager.h">
+    <ClInclude Include="ArgumentManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hw0.cpp">
+    <Text Include="ans01.txt">
       <Filter>Source Files</Filter>
-    </ClCompile>
+    </Text>
+    <Text Include="ans02.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="ans03.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="input01.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="input02.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="input03.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hw0.pdf">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="test0.sh">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
