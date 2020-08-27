@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <cstring>
 #include "ArgumentManager.h"
 
 using namespace std;
@@ -16,21 +17,23 @@ int main(int argc, char* argv[])
 
     ofstream outFS(output);
     ifstream inFS(input);
+    istringstream inSS;
 
     //Check if the input file is open
     if (!inFS.is_open())
     {
-        cout << "Could not open input file." << endl;
         return 1;
     }
 
+    string size_str = "";
     int size = 0;
     int index = 0;
     string line;
-    istringstream inSS;
+    string word;
 
     //Read matrix size from the first line
-    inFS >> size;
+    inFS >> size_str;
+    size = stoi(size_str);
 
     //Declare a dynamic array to store numbers
     int *matrix = new int[size * size];
@@ -40,24 +43,26 @@ int main(int argc, char* argv[])
         getline(inFS, line);
         inSS.str(line);
 
-        while (inSS >> matrix[index])
+        for (int i = 0; i < size; i++)
         {
+            inSS >> word;
+            matrix[index] = stoi(word);
             index++;
         }
-
+        
         inSS.clear();
     }
 
     string condition = "";
     getline(inFS, condition);
 
-    int n = condition.length();
+    //int n = condition.length();
 
     //Declare a dynamic character array
-    char *subcondition = new char[n + 1];
+    const char* subcondition = condition.c_str();
 
     //Copy the contents of the string to char array 
-    strcpy(subcondition, condition.c_str());
+    //strcpy(subcondition, condition.c_str());
 
     int counter = 0;
 
@@ -101,7 +106,6 @@ int main(int argc, char* argv[])
         }
         else
         {
-            cout << "Invalid condition." << endl;
             return 1;
         }
     }
