@@ -15,6 +15,8 @@ int main(int argc, char* argv[])
     string input = am.get("input");           
     string output = am.get("output");
 
+    cout << input;
+
     ofstream outFS(output);
     ifstream inFS(input);
     istringstream inSS;
@@ -25,15 +27,12 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    string size_str = "";
     int size = 0;
     int index = 0;
     string line;
-    string word;
 
     //Read matrix size from the first line
-    inFS >> size_str;
-    size = stoi(size_str);
+    inFS >> size;
 
     //Declare a dynamic array to store numbers
     int *matrix = new int[size * size];
@@ -45,8 +44,7 @@ int main(int argc, char* argv[])
 
         for (int i = 0; i < size; i++)
         {
-            inSS >> word;
-            matrix[index] = stoi(word);
+            inSS >> matrix[index];
             index++;
         }
         
@@ -112,4 +110,5 @@ int main(int argc, char* argv[])
     outFS << percentage;
 
     outFS.close();
+    return 0;
 }
