@@ -1,8 +1,8 @@
 ﻿#include <iostream>
 #include <string>
 #include <fstream>
-#include <sstream>
 #include <cstring>
+#include <iomanip>
 #include "ArgumentManager.h"
 
 using namespace std;
@@ -15,11 +15,12 @@ int main(int argc, char* argv[])
     string input = am.get("input");           
     string output = am.get("output");
 
-    cout << input;
+    //Test
+    //string input = "input03.txt";
+    //string output = "output03.txt";
 
     ofstream outFS(output);
     ifstream inFS(input);
-    istringstream inSS;
 
     //Check if the input file is open
     if (!inFS.is_open())
@@ -28,43 +29,38 @@ int main(int argc, char* argv[])
     }
 
     int size = 0;
+    int totalNumber = 0;
     int index = 0;
     string line;
 
     //Read matrix size from the first line
     inFS >> size;
+    totalNumber = size * size;
 
     //Declare a dynamic array to store numbers
-    int *matrix = new int[size * size];
+    int *matrix = new int[totalNumber];
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < totalNumber; i++)
     {
-        getline(inFS, line);
-        inSS.str(line);
-
-        for (int i = 0; i < size; i++)
-        {
-            inSS >> matrix[index];
-            index++;
-        }
-        
-        inSS.clear();
+        inFS >> matrix[index];
+        index++;
     }
 
     string condition = "";
-    getline(inFS, condition);
+    inFS >> condition;
 
     //Declare a dynamic character array
     //Copy the contents of the string to char array 
     const char* subcondition = condition.c_str();
+    string conNumber;
 
     int counter = 0;
 
-    for (int i = 0; i < size * size; i++)
+    for (int i = 0; i < totalNumber; i++)
     {
         if (subcondition[0] == 'e')
         {
-            if (matrix[i] / 2 == 0)
+            if ((matrix[i] % 2) == 0)
             {
                 counter++;
             }
@@ -72,28 +68,31 @@ int main(int argc, char* argv[])
         }
         else if (subcondition[0] == 'o')
         {
-            if (matrix[i] / 2 != 0)
+            if ((matrix[i] % 2) != 0)
             {
                 counter++;
             }
         }
         else if (subcondition[0] == '>')
         {
-            if (matrix[i] > subcondition[1])
+            conNumber = subcondition[1];
+            if (matrix[i] > stoi(conNumber))
             {
                 counter++;
             }
         }
         else if (subcondition[0] == '=')
         {
-            if (matrix[i] == subcondition[1])
+            conNumber = subcondition[1];
+            if (matrix[i] == stoi(conNumber))
             {
                 counter++;
             }
         }
         else if (subcondition[0] == '<')
         {
-            if (matrix[i] < subcondition[1])
+            conNumber = subcondition[1];
+            if (matrix[i] < stoi(conNumber))
             {
                 counter++;
             }
@@ -106,8 +105,8 @@ int main(int argc, char* argv[])
 
     inFS.close();
 
-    double percentage = counter / (size * size);
-    outFS << percentage;
+    double percentage = (double)counter / totalNumber;
+    outFS << fixed << setprecision(2) << percentage;
 
     outFS.close();
     return 0;
