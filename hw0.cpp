@@ -56,13 +56,9 @@ int main(int argc, char* argv[])
     string condition = "";
     getline(inFS, condition);
 
-    //int n = condition.length();
-
     //Declare a dynamic character array
-    const char* subcondition = condition.c_str();
-
     //Copy the contents of the string to char array 
-    //strcpy(subcondition, condition.c_str());
+    const char* subcondition = condition.c_str();
 
     int counter = 0;
 
